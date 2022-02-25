@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import StarRating from './components/StarRating';
+import colors from './data/color-data.json';
+import ColorProvider from './components/ColorProvider';
+
+export const ColorContext = createContext();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <StarRating />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <ColorProvider>
+    <App/>
+  </ColorProvider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 

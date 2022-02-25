@@ -8,17 +8,13 @@ const Star=({selected=false , onSelect})=>(
     <FaStar color={selected?"red":"grey"} onClick={onSelect} />
 );
 
-export default function StarRating({totalStars=5}){
-    const [SelectedStars,setStars] = useState(3);
-
-
+export default function StarRating({SelectedStars,totalStars=5,onRate= f=>f}){
     return (
         <>
             {createArray(totalStars).map((n,i)=>(
                 <Star 
-                    key={i} 
-                    selected={SelectedStars>i} 
-                    onSelect={()=>setStars(i+1)} ></Star>
+                    key={i} selected={SelectedStars>i} 
+                    onSelect={()=>onRate(i+1)} ></Star>
                 ))}
             <p>
                 {SelectedStars}/{totalStars}
